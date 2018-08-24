@@ -1,26 +1,40 @@
 {
-  "name": "discord-chatbot",
-  "version": "1.0.0",
-  "engines": {
-    "node": "8.2.1",
-    "npm": "5.3.0"
-  },
-  "description": "A chatbot for Discord, build for NEO Endurance",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://HappyNiel@bitbucket.org/HappyNiel/discord-chatbot.git"
-  },
-  "keywords": [],
-  "author": "Niel Hekkens",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/HappyNiel/discord-chatbot#readme",
-  "dependencies": {
-    "discord.js": "^11.2.0"
-  },
-  "devDependencies": {}
+	"name": "discord-chatbot",
+	"version": "0.1.0",
+	"engines": {
+		"node": "8.11.1",
+		"npm": "6.4.0"
+	},
+	"description": "A chatbot for Discord, build for NEO Endurance",
+	"scripts": {
+		"test-u": "tsc && npm run test-u-o",
+		"test-u-o": "nyc --all --silent mocha \"bin/tests-u/**/*.unit-test.js\"",
+		"lint": "tslint --project \"src/**/*.ts\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://HappyNiel@bitbucket.org/HappyNiel/discord-chatbot.git"
+	  },
+	"keywords": [
+		"NEO Endurance",
+		"Race control",
+		"Discord"
+	],
+	"author": "Niel Hekkens",
+	"license": "ISC",
+	"homepage": "https://bitbucket.org/HappyNiel/discord-chatbot#readme",
+	"dependencies": {
+		"discord.js": "^11.4.2"
+	},
+	"devDependencies": {
+		"@types/chai": "4.1.2",
+		"chai": "^4.1.2",
+		"mocha": "^5.2.0",
+		"mocha-typescript": "^1.1.17",
+		"nyc": "^12.0.2",
+		"ts-node": "^7.0.1",
+		"tslint": "^5.11.0",
+		"typemoq": "^2.1.0",
+		"typescript": "^3.0.1"
+	}
 }

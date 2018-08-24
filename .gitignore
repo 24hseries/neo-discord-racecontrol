@@ -1,4 +1,7 @@
-node_modules
+bin/
+node_modules/
+.vscode/
+.nyc_output/
 package-lock.json
 config.json
 npm-debug.log

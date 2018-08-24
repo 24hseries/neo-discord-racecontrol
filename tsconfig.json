@@ -1,0 +1,34 @@
+{
+	"compilerOptions": {
+
+		"outDir": "bin",
+		"rootDir": "./",
+		"moduleResolution": "node",
+
+		"alwaysStrict": true,
+		"strictNullChecks": true,
+
+		"allowJs": false,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+
+		"sourceMap": true,
+
+		"target": "es6",
+		"lib": ["es6", "dom"],
+		"module": "commonjs",
+
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true
+	},
+	"typeRoots": ["node_modules/@types/"],
+	"exclude": ["node_modules",	"bin"]
+}
