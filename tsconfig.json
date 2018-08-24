@@ -26,6 +26,10 @@
 		"lib": ["es6", "dom"],
 		"module": "commonjs",
 
+		"types": [
+			"node"
+		],
+
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true
 	},

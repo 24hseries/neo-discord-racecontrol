@@ -10,12 +10,12 @@
 		"test-u": "tsc && npm run test-u-o",
 		"test-u-o": "nyc --all --silent mocha \"bin/tests-u/**/*.unit-test.js\"",
 		"lint": "tslint --project \"src/**/*.ts\"",
-		"start": "node index.js"
+		"start": "node bin/src/app-controller.js"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://HappyNiel@bitbucket.org/HappyNiel/discord-chatbot.git"
-	  },
+	},
 	"keywords": [
 		"NEO Endurance",
 		"Race control",
@@ -29,6 +29,7 @@
 	},
 	"devDependencies": {
 		"@types/chai": "4.1.2",
+		"@types/node": "^10.9.1",
 		"chai": "^4.1.2",
 		"mocha": "^5.2.0",
 		"mocha-typescript": "^1.1.17",
