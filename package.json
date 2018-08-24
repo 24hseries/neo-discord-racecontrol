@@ -9,7 +9,8 @@
 	"scripts": {
 		"test-u": "tsc && npm run test-u-o",
 		"test-u-o": "nyc --all --silent mocha \"bin/tests-u/**/*.unit-test.js\"",
-		"lint": "tslint --project \"src/**/*.ts\""
+		"lint": "tslint --project \"src/**/*.ts\"",
+		"start": "node index.js"
 	},
 	"repository": {
 		"type": "git",
