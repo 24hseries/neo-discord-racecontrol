@@ -32,10 +32,11 @@ class AppController {
 		client.on("message", message => {
 			if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-			const command = this.useOnlyFirstWordAsCommand(message);
+			const commandName = this.useOnlyFirstWordAsCommand(message);
+			const command = client.commands.get(commandName);
 
 			try{
-				client.commands.get(command).execute(message);
+				command.execute(message);
 			}
 			catch(e){
 				message.channel.send("Sorry, I don't recognise this command. Please use `!help` to see the available commands.");
