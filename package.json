@@ -9,14 +9,12 @@
 	},
 	"main": "index.js",
 	"scripts": {
-		"test-u": "tsc && npm run test-u-o",
-		"test-u-o": "nyc --all --silent mocha \"bin/tests-u/**/*.unit-test.js\"",
 		"lint": "tslint --project \"src/**/*.ts\"",
 		"start": "node ."
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://HappyNiel@bitbucket.org/HappyNiel/discord-chatbot.git"
+		"url": "git+https://github.com/HappyNiel/neo-discord-racecontrol.git"
 	},
 	"keywords": [
 		"NEO Endurance",
@@ -24,7 +22,7 @@
 		"Discord"
 	],
 	"license": "ISC",
-	"homepage": "https://bitbucket.org/HappyNiel/discord-chatbot#readme",
+	"homepage": "https://github.com/HappyNiel/neo-discord-racecontrol#discord-racecontrol",
 	"dependencies": {
 		"discord.js": "^11.4.2",
 		"eslint": "^5.6.0"
