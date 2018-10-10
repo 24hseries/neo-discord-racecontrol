@@ -4,5 +4,5 @@ module.exports = {
 	// The command goes into the execure block
 	execute(message) {
 		message.channel.send('External pong.');
-	},
+	}
 };
