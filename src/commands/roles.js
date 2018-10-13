@@ -4,64 +4,80 @@ module.exports = {
 	name: 'roles',
 	description: 'Creates the roles',
 	execute(message) {
+		const author = message.author.username;
 		const guild = message.guild;
-		const user = guild.members.find(value => value.user.username === "Fabio Mantellini");
-		const findRole = guild.roles.find(value => value.name === "4 - Mivano Racing");
-		
-		user.addRole(findRole)
-			.then()
-			.catch(console.error);
-		// message.channel.send(`?role Fabio Mantellini#7815 @${findRole.name}`);
+
+		if(isAuthorAdmin(author)) {
+			handleAssigningUserRoles(guild, message);
+		}
+		else {
+			message.channel.send("I'm sorry, Dave. I'm afraid I can't do that.");
+		}
 	}
 };
+
+function handleAssigningUserRoles(guild, message) {
+	// Get the latest data
+	const url = "https://neo-endurance.com/php/discord_data.php";
+	fetch(url)
+		.then(res => res.json())
+		.then(json => {
+			loopThroughData(json, guild, message);
+		});
+}
 
 function isAuthorAdmin(username) {
 	return username === "NielHekkens" ? true : false;
 }
 
-// const username = message.author.username;
-		// const guild = message.guild;
-		// const availableRoles = guild.roles;
+function loopThroughData(entry, guild, message) {
+	for(let i = 0; i < entry.length; i++){
+		setTimeout(function() {
+			loopThroughEntry(entry[i], guild, message);
+		}, 1000);
+	}
+}
 
-		// const findRole = guild.roles.find(value => value.name === "3 - Mivano Racing");
-		// const member = guild.users.find(value => value.username === "NielHekkens");
-		// member.addRole(findRole);
+function loopThroughEntry(entry, guild, message) {
+	const roleOfThisEntry = entry.role_name;
 
-		// if(isAuthorAdmin(username)) {
-		// 	// handleUserRoles(availableRoles);
-		// }
-		// else {
-		// 	message.channel.send("I'm sorry, Dave. I'm afraid I can't do that.");
-		// }
+	for(let i = 0; i < 8; i++) {
+		const selectedDriver = "driver"+i;
+		if(entry[selectedDriver] !== ""){
+			// console.log(`${roleOfThisEntry} - ${entry[selectedDriver]}`);
+			const fullUsername = entry[selectedDriver];
+			const username = splitUserNameFromDiscriminator(fullUsername);
+			
+			assignRoleToUser(username, roleOfThisEntry, guild, message);
+		}
+	}
+}
 
-// function handleUserRoles(availableRoles) {
-// 	// Get the latest data
-// 	const url = "https://neo-endurance.com/php/discord_data.php";
-// 	fetch(url)
-// 		.then(res => res.json())
-// 		.then(json => {
-// 			loopThroughData(json);
-// 		});
-// }
+function splitUserNameFromDiscriminator(fullUsername) {
+	const username = fullUsername.split(/#+/)[0];
+	return username;
+}
 
-// function loopThroughData(json) {
-// 	for(let i = 0; i < json.length; i++){
-// 		loopThroughEntry(json[i]);
-// 	}
-// }
+function fetchUserRole(requestedUserRole, guild) {
+	const userRole = guild.roles.find(value => value.name === requestedUserRole);
+	return userRole;
+}
 
-// function loopThroughEntry(entry) {
-// 	const roleOfThisEntry = entry.role_name;
+function fetchUserName(requestedUsername, guild) {
+	const user = guild.members.find(value => value.user.username === requestedUsername);
+	return user;
+}
 
-// 	for(let i = 0; i < 8; i++) {
-// 		const selectedDriver = "driver"+i;
-// 		assignRoleToUser(roleOfThisEntry, selectedDriver);
-// 	}
-// }
+function assignRoleToUser(userName, userRole, guild, message) {
+	const role = fetchUserRole(userRole, guild);
+	const user = fetchUserName(userName, guild);
 
-// function assignRoleToUser(userRole, selectedUser) {
-// 	const role = availableRoles.find(value => value.name === userRole);
-// 	const requestedUsername = selectedUser.split(/#+/)[0];
-	
-// 	client.users.find(user => user.username === requestedUsername);
-// }
+	if(user){
+		user.addRole(role)
+			.then()
+			.catch(console.error);
+	}
+	else{
+		message.channel.send(`I couldn't find ${userName} for the ${userRole}.`);
+	}
+}
