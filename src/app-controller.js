@@ -1,12 +1,9 @@
 const { 
-	discordBotSecret, 
-	webhookId,
-	webhookToken,
+	discordBotSecret,
 	prefix 
 } = require ("./../config.json");
 const fs = require("fs");
 const discordJS = require ("discord.js");
-const fetch = require('node-fetch');
 
 const client = new discordJS.Client();
 client.commands = new discordJS.Collection();
@@ -21,8 +18,6 @@ class AppController {
 
 	constructor() {
 		this.discordBotSecret = discordBotSecret; //process.env.DISCORD_SECRET;
-		this.webhookId = webhookId; //process.env.WEBHOOK_ID;
-		this.webhookToken = webhookToken; //process.env.WEBHOOK_TOKEN;
 		this.port = process.env.PORT || 3000;
 	}
 
@@ -58,36 +53,6 @@ class AppController {
 		const args = message.content.slice(prefix.length).split(/ +/);
 		// console.log(args);
 		return args.shift().toLowerCase()
-	}
-}
-
-function loopThroughData(json, message) {
-	for(let i = 0; i < json.length; i++){
-		loopThroughEntry(json[i], message);
-	}
-}
-
-function loopThroughEntry(entry, message) {
-	const roleOfThisEntry = entry.role_name;
-
-	for(let i = 0; i < 8; i++) {
-		const selectedDriver = "driver"+i;
-		assignRoleToUser(roleOfThisEntry, selectedDriver, message);
-	}
-}
-
-function assignRoleToUser(userRole, selectedUser, message) {
-	const availableRoles = message.guild.roles;
-	const role = client.guild.roles.find(value => value.name === userRole);
-	const requestedUsername = selectedUser.split(/#+/)[0];
-	
-	const foundUser = availableRoles.users.find(user => user.username === requestedUsername);
-	if(foundUser){
-		console.log("ready to assign role");
-		// foundUser.addRole(role);
-	}
-	else{
-		return;
 	}
 }
 

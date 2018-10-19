@@ -3,6 +3,6 @@ module.exports = {
 	description: 'Ping!',
 	// The command goes into the execure block
 	execute(message) {
-		message.channel.send('External pong.');
+		message.channel.send(`Don't ping me. Leave me alone.`);
 	}
 };
