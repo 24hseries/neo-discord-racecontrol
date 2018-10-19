@@ -48,7 +48,6 @@ class AppController {
 
 	useOnlyFirstWordAsCommand(message) {
 		const args = message.content.slice(prefix.length).split(/ +/);
-		// console.log(args);
 		return args.shift().toLowerCase()
 	}
 }

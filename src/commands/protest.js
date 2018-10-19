@@ -5,7 +5,7 @@ const discordJS = require("discord.js");
 
 module.exports = {
 	name: "protest",
-	description: "",
+	description: "Submit a protest.",
 	// The command goes into the execute block
 	execute(message) {
 		initiateProtest(message);
