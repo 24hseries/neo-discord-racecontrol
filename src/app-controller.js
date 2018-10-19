@@ -1,9 +1,10 @@
-const { prefix } = require ("./../config.json");
 const fs = require("fs");
 const discordJS = require ("discord.js");
 
 const client = new discordJS.Client();
 client.commands = new discordJS.Collection();
+
+const prefix = "!";
 
 const commandFiles = fs.readdirSync("./src/commands").filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
@@ -19,6 +20,7 @@ class AppController {
 	}
 
 	init() {
+		
 		this.loginToDiscord();
 
 		client.on("message", message => {

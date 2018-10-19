@@ -1,6 +1,3 @@
-const {
-	urlProtestSheet
-} = require("./../../config.json");
 const discordJS = require("discord.js");
 
 module.exports = {
@@ -32,6 +29,7 @@ function sendProtestToRaceControl(author, channel, carsInvolved, timeStamp, reas
 }
 
 function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
+	const urlProtestSheet = "https://docs.google.com/spreadsheets/d/1QorDe5E0TkbYuSNnPBjp-aYq3bQ2Dd8La5gsPY1raLM/edit?usp=sharing";
 
 	const protestConfirmation = new discordJS.RichEmbed();
 	protestConfirmation
