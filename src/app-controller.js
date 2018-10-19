@@ -1,7 +1,4 @@
-const { 
-	discordBotSecret,
-	prefix 
-} = require ("./../config.json");
+const { prefix } = require ("./../config.json");
 const fs = require("fs");
 const discordJS = require ("discord.js");
 
@@ -17,7 +14,7 @@ for (const file of commandFiles) {
 class AppController {
 
 	constructor() {
-		this.discordBotSecret = discordBotSecret; //process.env.DISCORD_SECRET;
+		this.discordBotSecret = process.env.DISCORD_SECRET;
 		this.port = process.env.PORT || 3000;
 	}
 

@@ -1,6 +1,4 @@
 const {
-	webhookId,
-	webhookToken,
 	urlProtestSheet
 } = require("./../../config.json");
 const discordJS = require("discord.js");
@@ -10,20 +8,13 @@ module.exports = {
 	description: "",
 	// The command goes into the execute block
 	execute(message) {
-		handleProtest(message);
+		initiateProtest(message);
 	}
 };
 
-function handleProtest(message) {
-	initiateProtest(message);
-
-	// Send message to #race-control channel and notify the stewards.
-
-	// Send reply to the person who submitted the protest.
-	// confirmProtestSubmitted(message);
-}
-
 function sendProtestToRaceControl(author, channel, carsInvolved, timeStamp, reason) {
+	const webhookId = process.env.WEBHOOK_ID;
+	const webhookToken = process.env.WEBHOOK_TOKEN;
 	const raceControlTextChannel = new discordJS.WebhookClient(webhookId, webhookToken);
 
 	const richEmbedMessage = new discordJS.RichEmbed();
@@ -37,7 +28,7 @@ function sendProtestToRaceControl(author, channel, carsInvolved, timeStamp, reas
 		.addBlankField()
 		.setTimestamp();
 
-	raceControlTextChannel.send("@ here", richEmbedMessage);
+	raceControlTextChannel.send("@here", richEmbedMessage);
 }
 
 function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
