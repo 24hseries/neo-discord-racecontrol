@@ -1,8 +1,7 @@
 language: node_js
 node_js:
   - "iojs"
+  - "8"
 
-install:
-  - npm install
-
+install: npm install
 script: npm start
