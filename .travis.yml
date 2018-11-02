@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "iojs"
+
+install:
+  - npm install
+
+cache: npm
+
+script: npm start
