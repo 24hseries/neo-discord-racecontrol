@@ -25,7 +25,7 @@ function sendProtestToRaceControl(author, channel, carsInvolved, timeStamp, reas
 		.addBlankField()
 		.setTimestamp();
 
-	raceControlTextChannel.send("@here", richEmbedMessage);
+	raceControlTextChannel.send(`@here: new protest from #${channel}`, richEmbedMessage);
 }
 
 function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
