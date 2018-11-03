@@ -9,10 +9,11 @@ module.exports = {
 			.setColor("#E56A02")
 			.setTitle("Available commands")
 			.setDescription("These are the commands available:")
+			.addField("!ping", "Want to check if the bot is online?")
 			.addField("!help", "This is where you are now. This gives you a list of available commands.")
-			.addField("!protest", "With this command you can submit a protest.")
 			.addField("!racespot", "Gives you the IP address of the Racespot TeamSpeak server.")
-			.addField("!ping", "Want to check if the bot is online?");
+			.addField("!protest", "With this command you can submit a protest.")
+			.addField("!sheet", "Gives you the URL of the protest spreadsheet.");
 			
 		message.channel.send(helpMessage);
 	}
