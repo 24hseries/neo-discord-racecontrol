@@ -1,8 +1,8 @@
 const discordJS = require("discord.js");
 
 module.exports = {
-	name: "protest",
-	description: "Submit a protest.",
+	name: "report",
+	description: "Submit a report.",
 	// The command goes into the execute block
 	execute(message) {
 		initiateProtest(message);
@@ -17,15 +17,15 @@ function sendProtestToRaceControl(author, channel, carsInvolved, timeStamp, reas
 	const richEmbedMessage = new discordJS.RichEmbed();
 	richEmbedMessage
 		.setColor("#E56A02")
-		.setTitle("New protest")
-		.setDescription(`${author} submitted a protest in #${channel}`)
+		.setTitle("Incident report")
+		.setDescription(`${author} reported an incident in #${channel}`)
 		.addField("Cars involved", carsInvolved, true)
 		.addField("Timestamp", timeStamp, true)
 		.addField("Description", reason)
 		.addBlankField()
 		.setTimestamp();
 
-	raceControlTextChannel.send(`@here: new protest from #${channel}`, richEmbedMessage);
+	raceControlTextChannel.send(`@here: new incident reported from #${channel}`, richEmbedMessage);
 }
 
 function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
@@ -34,10 +34,10 @@ function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
 	const protestConfirmation = new discordJS.RichEmbed();
 	protestConfirmation
 		.setColor("#E56A02")
-		.setTitle("Protest successfully submitted")
-		.setDescription(`Thank you ${message.author}, your protest is successfully submitted. Please check the protest sheet for the status of your protest. \n \n [NEO live protest sheet](${urlProtestSheet})`)
+		.setTitle("Report successfully submitted")
+		.setDescription(`Thank you ${message.author}, your report is successfully submitted. Please check the race control sheet for the status of your report. \n \n [NEO live race control sheet](${urlProtestSheet})`)
 		.addBlankField()
-		.addField("Protest details", "Below you can find the information you submitted:")
+		.addField("Report details", "Below you can find the information you submitted:")
 		.addField("Cars involved", carsInvolved, true)
 		.addField("Timestamp", timeStamp, true)
 		.addField("Description", reason)
@@ -47,7 +47,7 @@ function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
 }
 
 function returnErrorMessage(message) {
-	message.channel.send("Something went wrong with submitting the protest. Please try again.");
+	message.channel.send("You waited too long with answering the question. Please restart the procedure by typing `!report`.");
 }
 
 function initiateProtest(message) {
@@ -86,7 +86,7 @@ function initiateProtest(message) {
 											const filter = m => message.author.id === m.author.id;
 
 											message.channel
-												.awaitMessages(filter, { max: 1, time: 60000, errors: ["time"] })
+												.awaitMessages(filter, { max: 1, time: 90000, errors: ["time"] })
 												.then(collected => {
 													// save the answer in a variable.
 													reason = collected.first().content;

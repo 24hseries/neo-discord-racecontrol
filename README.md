@@ -1,6 +1,8 @@
 # NEO Discord race control chatbot
 By NEO Endurance
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/df4e45cc1eefc670f363/maintainability)](https://codeclimate.com/github/HappyNiel/neo-discord-racecontrol/maintainability)
+
 The Discord race control chatbot is the communication system for the NEO Endurance Series league. With this tool teams are able to submit protest more efficiently and get request information from the bot.
 
 ## Getting Started
