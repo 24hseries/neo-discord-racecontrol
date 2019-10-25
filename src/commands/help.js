@@ -14,7 +14,7 @@ module.exports = {
 			.addField("!teamspeak", "Gives you the IP address of the NEO Endurance TeamSpeak server.")
 			.addField("!report", "With this command you can submit a protest.")
 			.addField("!sheet", "Gives you the URL of the race control spreadsheet.")
-			.addField("!penalty", "Notify race control you would like serve a penalty within the next 3 laps.");
+			.addField("!penalty [car number]", "Notify race control you would like serve a penalty shortly.");
 			
 		message.channel.send(helpMessage);
 	}
