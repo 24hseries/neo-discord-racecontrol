@@ -4,7 +4,7 @@
 	"author": "Niel Hekkens",
 	"description": "A chatbot for Discord, build for NEO Endurance",
 	"engines": {
-		"node": "8.11.1",
+		"node": "12.18.3",
 		"npm": "6.4.0"
 	},
 	"main": "index.js",
@@ -24,6 +24,7 @@
 	"license": "ISC",
 	"homepage": "https://github.com/HappyNiel/neo-discord-racecontrol#discord-racecontrol",
 	"dependencies": {
+		"axios": "^0.20.0",
 		"discord.js": "^11.4.2",
 		"eslint": "^5.6.0",
 		"node-fetch": "^2.2.0"
