@@ -5,7 +5,7 @@
 	"description": "A chatbot for Discord, build for NEO Endurance",
 	"engines": {
 		"node": "12.18.3",
-		"npm": "6.4.0"
+		"npm": "6.14.6"
 	},
 	"main": "index.js",
 	"scripts": {
