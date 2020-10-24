@@ -13,6 +13,7 @@ module.exports = {
 			.addField("!help", "This is where you are now. This gives you a list of available commands.")
 			.addField("!teamspeak", "Gives you the IP address of the NEO Endurance TeamSpeak server.")
 			.addField("!report", "With this command you can submit a protest.")
+			.addField("!served", "Notify race control you served the penalty.")
 			.addField("!sheet", "Gives you the URL of the race control spreadsheet.");
 			
 		message.channel.send(helpMessage);
