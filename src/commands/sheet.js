@@ -2,14 +2,14 @@ const discordJS = require("discord.js");
 
 module.exports = {
 	name: 'sheet',
-	description: 'Gives you the URL of the race control spreadsheet.',
+	description: 'Provides the URL of the digital notice board.',
 	execute(message) {
-		const urlProtestSheet = "https://docs.google.com/spreadsheets/d/1QorDe5E0TkbYuSNnPBjp-aYq3bQ2Dd8La5gsPY1raLM/edit?usp=sharing";
+		const urlProtestSheet = "https://docs.google.com/spreadsheets/d/1bPSgzSZrbZf5oVVouYWRf4q2Ug_q0KWno2du13Un_lM/edit?usp=sharing";
 
 		const protestSheetMessage = new discordJS.RichEmbed()
 			.setColor("#E56A02")
-			.setTitle("Live race control sheet")
-			.setDescription(`The race control sheet is available here: [NEO live race control sheet](${urlProtestSheet})`);
+			.setTitle("Digital notice board")
+			.setDescription(`The digital notice board is available here: [24H SERIES ESPORTS digital notice board](${urlProtestSheet})`);
 			
 		message.channel.send(protestSheetMessage);
 	}
