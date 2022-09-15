@@ -18,14 +18,14 @@ function sendProtestToRaceControl(author, channel, carsInvolved, timeStamp, reas
 	richEmbedMessage
 		.setColor("#E56A02")
 		.setTitle("Incident report")
-		.setDescription(`${author} reported an incident in #${channel}`)
+		.setDescription(`${author} submitted a report in #${channel}`)
 		.addField("Cars involved", carsInvolved, true)
 		.addField("Timestamp", timeStamp, true)
 		.addField("Description", reason)
 		.addBlankField()
 		.setTimestamp();
 
-	raceControlTextChannel.send(`@here: new incident reported from #${channel}`, richEmbedMessage);
+	raceControlTextChannel.send(`@here: new report from #${channel}`, richEmbedMessage);
 }
 
 function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
@@ -35,7 +35,7 @@ function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
 	protestConfirmation
 		.setColor("#E56A02")
 		.setTitle("Report successfully submitted")
-		.setDescription(`Thank you ${message.author}, your report is successfully submitted. Please check the Digital Notice Board for the status of your report. \n \n [Digital Notice Board](${urlProtestSheet})`)
+		.setDescription(`Thank you ${message.author}, your report is successfully submitted. Please check the race control sheet for the status of your report. \n \n [Digital notice board](${urlProtestSheet})`)
 		.addBlankField()
 		.addField("Report details", "Below you can find the information you submitted:")
 		.addField("Cars involved", carsInvolved, true)
