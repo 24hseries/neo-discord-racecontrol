@@ -14,7 +14,7 @@ module.exports = {
 			.addField("!teamspeak", "Gives you the IP address of the Racespot TeamSpeak server.")
 			.addField("!report", "With this command you can submit a protest.")
 			.addField("!served", "Notify race control you served the penalty.")
-			.addField("!sheet", "Gives you the URL of the race control spreadsheet.");
+			.addField("!sheet", "Gives you the URL of the Digital Notice Board.");
 			
 		message.channel.send(helpMessage);
 	}
