@@ -24,7 +24,6 @@
 	"license": "ISC",
 	"homepage": "https://github.com/HappyNiel/neo-discord-racecontrol#discord-racecontrol",
 	"dependencies": {
-		"axios": "^0.20.0",
 		"discord.js": "^11.4.2",
 		"eslint": "^5.6.0",
 		"node-fetch": "^2.2.0"
