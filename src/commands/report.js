@@ -35,7 +35,7 @@ function confirmProtestSubmitted(message, carsInvolved, timeStamp, reason) {
 	protestConfirmation
 		.setColor("#E56A02")
 		.setTitle("Report successfully submitted")
-		.setDescription(`Thank you ${message.author}, your report is successfully submitted. Please check the race control sheet for the status of your report. \n \n [NEO live race control sheet](${urlProtestSheet})`)
+		.setDescription(`Thank you ${message.author}, your report is successfully submitted. Please check the Digital Notice Board for the status of your report. \n \n [Digital Notice Board](${urlProtestSheet})`)
 		.addBlankField()
 		.addField("Report details", "Below you can find the information you submitted:")
 		.addField("Cars involved", carsInvolved, true)
